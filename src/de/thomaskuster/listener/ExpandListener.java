@@ -30,7 +30,7 @@ public class ExpandListener implements Animation.AnimationListener {
     @Override
     public void onAnimationStart(Animation animation) {
         int childCount = mContext.getChildCount();
-        for(int i = 1; i < childCount; i++){
+        for(int i = 0; i < childCount; i++){
             View child = mContext.getChildAt(i);
             child.setVisibility(View.VISIBLE);
         }

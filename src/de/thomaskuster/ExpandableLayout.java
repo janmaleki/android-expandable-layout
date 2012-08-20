@@ -89,7 +89,11 @@ public class ExpandableLayout extends RelativeLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         if(mMeasuredHeight == 0){
-            mMeasuredHeight += getChildAt(1).getMeasuredHeight();
+            for(int i = 0; i < getChildCount(); i++){
+                if(getChildAt(i).getId() != R.id.toggle_button){
+                    mMeasuredHeight += getChildAt(i).getHeight();
+                }
+            }
         }
     }
 }

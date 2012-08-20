@@ -17,7 +17,7 @@ public class CollapseListener implements Animation.AnimationListener {
 
     private ExpandableLayout mContext;
 
-    public CollapseListener(ExpandableLayout layout){
+    public CollapseListener(ExpandableLayout layout) {
         setOnCollapseAnimationListener(layout);
     }
 
@@ -25,7 +25,7 @@ public class CollapseListener implements Animation.AnimationListener {
         mContext = context;
     }
 
-    public void removeCollapseAnimationListener(){
+    public void removeCollapseAnimationListener() {
         mContext = null;
     }
 
@@ -38,9 +38,11 @@ public class CollapseListener implements Animation.AnimationListener {
         mContext.clearAnimation();
         //Hide Elements inside layout when collapsed
         int childCount = mContext.getChildCount();
-        for(int i = 1; i < childCount; i++){
+        for (int i = 0; i < childCount; i++) {
             View child = mContext.getChildAt(i);
-            child.setVisibility(View.GONE);
+            if (child.getId() != de.thomaskuster.R.id.toggle_button) {
+                child.setVisibility(View.GONE);
+            }
         }
     }
 
